@@ -1,4 +1,4 @@
-# Dancing AI Training App
+# Dancing AI Training App 
 To teach dance moves for anyone interested with the help of an animated 3D character. And to make it more interesting, we intend to include the option to upload a dance video and make the 3D character dance in tandem with the dancer in the video.
 
 ## Synopsis
@@ -9,12 +9,14 @@ Furthermore, we teach the 3D AI character to learn from a set of (shuffle) dance
 
 ### References
 
-1. [Dance and early childhood cognition: The Isadora Effect](https://www.google.com/)
-2. Health benefits of dancing activity among Korean middle-aged women
-3. Feasibility of home exercises to enhance the benefits of tango dancing in people with Parkinson’s disease
-4. Depression, Social Isolation, and the Lived Experience of Dancing in Disadvantaged Adults
-    5. Everybody Dance Now
-    6. LightTrack: A Generic Framework for Online Top-Down Human Pose Tracking
-    7. Simple Baselines for Human Pose Estimation and Tracking
-    8. Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems
-    9. An Introduction to Deep Reinforcement Learning
+1. [Dance and early childhood cognition: The Isadora Effect](https://www.tandfonline.com/doi/abs/10.1080/10632913.2016.1245166)
+2. [Health benefits of dancing activity among Korean middle-aged women](https://www.tandfonline.com/doi/full/10.3402/qhw.v11.31215)
+3. [Feasibility of home exercises to enhance the benefits of tango dancing in people with Parkinson’s disease](https://www.sciencedirect.com/science/article/abs/pii/S0965229918302401)
+4. [Depression, Social Isolation, and the Lived Experience of Dancing in Disadvantaged Adults](https://www.sciencedirect.com/science/article/abs/pii/S0883941715002472)
+5. [Everybody Dance Now](https://arxiv.org/abs/1808.07371)
+6. [LightTrack: A Generic Framework for Online Top-Down Human Pose Tracking](https://openaccess.thecvf.com/content_ECCV_2018/html/Bin_Xiao_Simple_Baselines_for_ECCV_2018_paper.html)
+7. [Simple Baselines for Human Pose Estimation and Tracking](https://openaccess.thecvf.com/content_ECCV_2018/html/Bin_Xiao_Simple_Baselines_for_ECCV_2018_paper.html)
+8. [Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems](https://arxiv.org/abs/2005.01643)
+9. [An Introduction to Deep Reinforcement Learning](https://arxiv.org/abs/1811.12560)
+
+### [Project Proposal](https://docs.google.com/document/d/1-v-93cy46GzwbvaLij_CYWq-NrMJBckHg6QT_YzfXdk/edit?usp=sharing)
