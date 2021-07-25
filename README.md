@@ -9,10 +9,10 @@ Furthermore, we teach the 3D AI character to learn from a set of (shuffle) dance
 
 ### References
 
-    1. [Dance and early childhood cognition: The Isadora Effect]: (https://www.google.com/)
-    2. Health benefits of dancing activity among Korean middle-aged women
-    3. Feasibility of home exercises to enhance the benefits of tango dancing in people with Parkinson’s disease
-    4. Depression, Social Isolation, and the Lived Experience of Dancing in Disadvantaged Adults
+1. [Dance and early childhood cognition: The Isadora Effect](https://www.google.com/)
+2. Health benefits of dancing activity among Korean middle-aged women
+3. Feasibility of home exercises to enhance the benefits of tango dancing in people with Parkinson’s disease
+4. Depression, Social Isolation, and the Lived Experience of Dancing in Disadvantaged Adults
     5. Everybody Dance Now
     6. LightTrack: A Generic Framework for Online Top-Down Human Pose Tracking
     7. Simple Baselines for Human Pose Estimation and Tracking
