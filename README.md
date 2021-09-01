@@ -22,3 +22,5 @@ Furthermore, we teach the 3D AI character to learn from a set of (shuffle) dance
 ### [Project Proposal](https://docs.google.com/document/d/1-v-93cy46GzwbvaLij_CYWq-NrMJBckHg6QT_YzfXdk/edit?usp=sharing)
 
 ### [Literary Review Presentation](https://amritauniv-my.sharepoint.com/:p:/g/personal/amenu4cse17510_am_students_amrita_edu/EYq6AgHckh1LhTW1JNTDD6kBRY3qiNFp-79kxyrhIaFPfg?e=f92vhR)
+
+### [Project skill Requirement and Resources Analysis](https://docs.google.com/document/d/1y-CbWjInqIwnV86UDdnJe3On8sBU8KnTlA1FcBL0v2c/edit?usp=sharing)
