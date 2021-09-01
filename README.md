@@ -20,3 +20,5 @@ Furthermore, we teach the 3D AI character to learn from a set of (shuffle) dance
 9. [An Introduction to Deep Reinforcement Learning](https://arxiv.org/abs/1811.12560)
 
 ### [Project Proposal](https://docs.google.com/document/d/1-v-93cy46GzwbvaLij_CYWq-NrMJBckHg6QT_YzfXdk/edit?usp=sharing)
+
+### [Literary Review Presentation](https://amritauniv-my.sharepoint.com/:p:/g/personal/amenu4cse17510_am_students_amrita_edu/EYq6AgHckh1LhTW1JNTDD6kBRY3qiNFp-79kxyrhIaFPfg?e=f92vhR)
