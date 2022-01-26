@@ -1,0 +1,15 @@
+Hip.L - 23
+Hip.R - 24
+Head_end - 0 (nose)
+UpperArmL - 11 
+UpperArmR - 12
+LoweArmL - 13
+LoweArmR - 14
+HandL - 15
+HandR - 16
+ShinL -	25 
+ShinR - 26
+FootL - 27
+FootR - 28
+FootL_end - 31 
+FootR_end - 32

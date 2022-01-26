@@ -216,6 +216,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &929957775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1694388104871626489, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
+  m_PrefabInstance: {fileID: 1273651601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +368,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1694388104871467769, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0008143525
+      objectReference: {fileID: 0}
     - target: {fileID: 1694388104871626409, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
       propertyPath: m_Name
       value: Character
@@ -388,6 +397,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &1273651604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1694388104871626411, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
+  m_PrefabInstance: {fileID: 1273651601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1273651605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273651602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd279189acca7ef489ba9f5dafe971cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoweArmL: {fileID: 929957775}
+  Armature: {fileID: 1273651604}
 --- !u!1 &1735855256
 GameObject:
   m_ObjectHideFlags: 0
