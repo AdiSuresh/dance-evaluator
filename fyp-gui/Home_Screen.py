@@ -1,5 +1,5 @@
 import sys
-import os
+# import shutil
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
@@ -16,6 +16,11 @@ class App(QWidget):
         self.initUI()
 
 
+
+    # original = r'C:\Users\Ron\Desktop\Test_1\products.csv'
+    # target = r'C:\Users\Ron\Desktop\Test_2\products.csv'
+
+    # shutil.copyfile(original, target)
 
     def initUI(self):
         self.setWindowTitle(self.title)
