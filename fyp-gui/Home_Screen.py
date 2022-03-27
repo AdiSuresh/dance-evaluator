@@ -26,7 +26,6 @@ class App(QWidget):
         self.b1.setText("Upload Video File to Estimate")
         self.b1.move(256,50)
         self.b1.setStyleSheet("padding: 50px; font-size: 16px;")
-        self.b1.clicked.connect(self.upload_video)
 
 \
         # Record Dance Moves to Score
@@ -43,10 +42,7 @@ class App(QWidget):
 
         self.show()
 
-        def upload_video(self):
-            fileitem = form['filename']
-
-            # check if the file has been uploaded
+        
 
 
 if __name__ == '__main__':
