@@ -14,6 +14,12 @@ import os
 class Ui_Home_Screen(object):
     def upload_video(self):
         os.system('python Copy_File.py')
+    
+    def record_dance(self):
+        os.system('python pose_est\pose_est\main.py')
+
+    def compare_dance(self):
+        os.system('python pose_est\post_est\catch_pose.py')
 
     def setupUi(self, Home_Screen):
         Home_Screen.setObjectName("Home_Screen")
@@ -33,9 +39,16 @@ class Ui_Home_Screen(object):
         self.Record_Dance = QtWidgets.QPushButton(self.centralwidget)
         self.Record_Dance.setObjectName("Record_Dance")
         self.gridLayout.addWidget(self.Record_Dance, 0, 1, 1, 1)
+
+        self.Upload_video.clicked.connect(self.record_dance)
+
+
         self.Compare_Dance = QtWidgets.QPushButton(self.centralwidget)
         self.Compare_Dance.setObjectName("Compare_Dance")
         self.gridLayout.addWidget(self.Compare_Dance, 1, 0, 1, 2)
+
+        self.Compare_Dance.clicked.connect(self.compare_dance)
+
         Home_Screen.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(Home_Screen)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 34))
