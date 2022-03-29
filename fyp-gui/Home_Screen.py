@@ -9,9 +9,12 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import os
 
 class Ui_Home_Screen(object):
+    def upload_video(self):
+        os.system('python Copy_File.py')
+
     def setupUi(self, Home_Screen):
         Home_Screen.setObjectName("Home_Screen")
         Home_Screen.resize(800, 600)
@@ -20,8 +23,12 @@ class Ui_Home_Screen(object):
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
+        
         self.Upload_video = QtWidgets.QPushButton(self.centralwidget)
         self.Upload_video.setObjectName("Upload_video")
+        
+        self.Upload_video.clicked.connect(self.upload_video)
+        
         self.gridLayout.addWidget(self.Upload_video, 0, 0, 1, 1)
         self.Record_Dance = QtWidgets.QPushButton(self.centralwidget)
         self.Record_Dance.setObjectName("Record_Dance")
@@ -40,6 +47,10 @@ class Ui_Home_Screen(object):
 
         self.retranslateUi(Home_Screen)
         QtCore.QMetaObject.connectSlotsByName(Home_Screen)
+
+    
+
+
 
     def retranslateUi(self, Home_Screen):
         _translate = QtCore.QCoreApplication.translate
