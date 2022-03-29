@@ -11,11 +11,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_Home_Screen(object):
+    def setupUi(self, Home_Screen):
+        Home_Screen.setObjectName("Home_Screen")
+        Home_Screen.resize(800, 600)
+        Home_Screen.setStyleSheet("font-size: 20px;")
+        self.centralwidget = QtWidgets.QWidget(Home_Screen)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
@@ -28,31 +29,31 @@ class Ui_MainWindow(object):
         self.Compare_Dance = QtWidgets.QPushButton(self.centralwidget)
         self.Compare_Dance.setObjectName("Compare_Dance")
         self.gridLayout.addWidget(self.Compare_Dance, 1, 0, 1, 2)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        Home_Screen.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(Home_Screen)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 34))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        Home_Screen.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(Home_Screen)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        Home_Screen.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Home_Screen)
+        QtCore.QMetaObject.connectSlotsByName(Home_Screen)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Home_Screen):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.Upload_video.setText(_translate("MainWindow", "Upload Video File to Estimate"))
-        self.Record_Dance.setText(_translate("MainWindow", "Record Your Dance Moves to Score"))
-        self.Compare_Dance.setText(_translate("MainWindow", "Comparing Dance Moves"))
+        Home_Screen.setWindowTitle(_translate("Home_Screen", "MainWindow"))
+        self.Upload_video.setText(_translate("Home_Screen", "Upload Video File to Estimate"))
+        self.Record_Dance.setText(_translate("Home_Screen", "Record Your Dance Moves to Score"))
+        self.Compare_Dance.setText(_translate("Home_Screen", "Comparing Dance Moves"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    Home_Screen = QtWidgets.QMainWindow()
+    ui = Ui_Home_Screen()
+    ui.setupUi(Home_Screen)
+    Home_Screen.show()
     sys.exit(app.exec_())
