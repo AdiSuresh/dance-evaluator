@@ -6,7 +6,8 @@ from PyQt5.QtGui import *
 
 class App(QWidget):
 
-    target = r'D:/All Projects/dancing-ai-robot/fyp-gui/pose_est/videos'
+    # target = r'D:/All Projects/dancing-ai-robot/fyp-gui/pose_est/videos'
+
 
     def __init__(self):
         super().__init__()
@@ -20,32 +21,64 @@ class App(QWidget):
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
-        
-        # self.openFileNameDialog()
-        self.openFileNamesDialog()
+
+
+        uploaded = self.openUpload()
+        print(uploaded)
+        recorded = self.openYourDance()
+        print(recorded)
+
+        scoring = QPushButton('Score', self)
+        scoring.clicked.connect(self.score)
+
+        v_box = QVBoxLayout()
+        v_box.addWidget(scoring)
+        self.setLayout(v_box)
+
+        # self.openFileNamesDialog()
         # self.saveFileDialog()
         
         self.show()
     
-    # def openFileNameDialog(self):
-    #     options = QFileDialog.Options()
-    #     # options |= QFileDialog.DontUseNativeDialog
-    #     fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;MP4 (.mp4);; MOV (.mov);; WMV (.wmv);; FLV (.flv);; AVI (.avi)", options=options)
+    # scoring function 
+    def score(self):
+        print('PyQt5 button click')
+
+    
+    def openUpload(self):
+        # Uploaded Video file selection
+
+        options = QFileDialog.Options()
+        # options |= QFileDialog.DontUseNativeDialog
+        uploaded, _ = QFileDialog.getOpenFileName(self,"Uploaded Video Files", "./pose_est/output/Upload","All Files (*);; CSV (.csv)", options=options)
         
-    #     # Need to include authentication to verify file format
-    #     if fileName:
-    #         original = fileName
-    #         shutil.copy(original, self.target)
-    #         print(fileName)
-    #         sys.exit()
+        # Need to include authentication to verify file format
+        if uploaded:
+            # original = uploaded
+            # shutil.copy(original, self.target)
+            return uploaded
+        
+
+    def openYourDance(self):
+        # Recorded Video file selection
+        
+        options = QFileDialog.Options()
+        # options |= QFileDialog.DontUseNativeDialog
+        recorded, _ = QFileDialog.getOpenFileName(self,"Recorded Video Files", "./pose_est/output/Your_Dance","All Files (*);; CSV (.csv)", options=options)
+        
+        # Need to include authentication to verify file format
+        if recorded:
+            # original = recorded
+            # shutil.copy(original, self.target)
+            return recorded
             
     
-    def openFileNamesDialog(self):
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        files, _ = QFileDialog.getOpenFileNames(self,"QFileDialog.getOpenFileNames()", "","All Files (*);;CSV Files (*.csv)", options=options)
-        if files:
-            print(files)
+    # def openFileNamesDialog(self):
+    #     options = QFileDialog.Options()
+    #     # options |= QFileDialog.DontUseNativeDialog
+    #     files, _ = QFileDialog.getOpenFileNames(self,"QFileDialog.getOpenFileNames()", "","All Files (*);;CSV Files (*.csv)", options=options)
+    #     if files:
+    #         print(files)
     
     # def saveFileDialog(self):
     #     options = QFileDialog.Options()
