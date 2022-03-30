@@ -3,6 +3,8 @@ import cv2
 import mediapipe as mp
 import pandas as pd
 
+# Capture Pose stands for Camara stuff
+
 op_path = './output/'
 
 

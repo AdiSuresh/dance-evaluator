@@ -19,7 +19,7 @@ class Ui_Home_Screen(object):
         os.system('python pose_est\pose_est\main.py')
 
     def compare_dance(self):
-        os.system('python pose_est\post_est\catch_pose.py')
+        os.system('python Compare_Dance.py')
 
     def setupUi(self, Home_Screen):
         Home_Screen.setObjectName("Home_Screen")

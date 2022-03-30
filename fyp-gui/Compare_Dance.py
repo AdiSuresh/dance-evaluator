@@ -10,7 +10,7 @@ class App(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.title = 'Select Video File to Upload'
+        self.title = 'PyQt5 file dialogs - pythonspot.com'
         self.left = 10
         self.top = 10
         self.width = 640
@@ -30,7 +30,7 @@ class App(QWidget):
     def openFileNameDialog(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        fileName, _ = QFileDialog.getOpenFileName(self,"Select Video File to Upload", "","All Files (*);;MP4 (.mp4);; MOV (.mov);; WMV (.wmv);; FLV (.flv);; AVI (.avi)", options=options)
+        fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;MP4 (.mp4);; MOV (.mov);; WMV (.wmv);; FLV (.flv);; AVI (.avi)", options=options)
         
         # Need to include authentication to verify file format
         if fileName:

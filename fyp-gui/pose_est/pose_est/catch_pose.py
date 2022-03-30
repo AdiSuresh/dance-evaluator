@@ -3,6 +3,7 @@ import mediapipe as mp
 
 video_path = r'../videos/young-man-walking-listening-to-music-from-his-headphones.mp4'
 
+# takes video path and creates csv
 
 def catch_pose():
     cap = cv2.VideoCapture(video_path)
