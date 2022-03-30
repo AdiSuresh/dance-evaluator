@@ -37,7 +37,6 @@ class App(QWidget):
             original = fileName
             shutil.copy(original, self.target)
             print(fileName)
-            sys.exit()
             
     
     # def openFileNamesDialog(self):

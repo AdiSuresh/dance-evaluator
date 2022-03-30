@@ -2,6 +2,8 @@ import sys
 import shutil
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+import Scoring
+import os
 
 
 class App(QWidget):
@@ -28,12 +30,14 @@ class App(QWidget):
         recorded = self.openYourDance()
         print(recorded)
 
-        scoring = QPushButton('Score', self)
-        scoring.clicked.connect(self.score)
+        self.score()
 
-        v_box = QVBoxLayout()
-        v_box.addWidget(scoring)
-        self.setLayout(v_box)
+        # scoring = QPushButton('Score', self)
+        # scoring.clicked.connect(self.score)
+
+        # v_box = QVBoxLayout()
+        # v_box.addWidget(scoring)
+        # self.setLayout(v_box)
 
         # self.openFileNamesDialog()
         # self.saveFileDialog()
@@ -42,7 +46,9 @@ class App(QWidget):
     
     # scoring function 
     def score(self):
-        print('PyQt5 button click')
+        print('Scoring Function')
+        os.system('python Scoring.py')
+        # Scoring.Ui_Scoring()
 
     
     def openUpload(self):

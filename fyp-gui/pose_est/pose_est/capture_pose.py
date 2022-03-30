@@ -5,7 +5,7 @@ import pandas as pd
 
 # Capture Pose stands for Camara stuff
 
-op_path = './output/'
+op_path = './output/Upload'
 
 
 def start_capture(path=0, save_output=False):
