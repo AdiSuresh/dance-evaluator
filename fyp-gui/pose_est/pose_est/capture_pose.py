@@ -47,23 +47,24 @@ def start_capture(path=0, save_output=False):
 
                 landmarks = dict()
                 keys = landmark_dict.keys()
-                for index, landmark in enumerate(results.pose_landmarks.landmark):
-                    if index in keys:
-                        landmarks[landmark_dict[index]] = [landmark.x,
-                                                           landmark.y,
-                                                           landmark.z]
+                if results.pose_landmarks is not None:
+                    for index, landmark in enumerate(results.pose_landmarks.landmark):
+                        if index in keys:
+                            landmarks[landmark_dict[index]] = [landmark.x,
+                                                               landmark.y,
+                                                               landmark.z]
 
-                pose_at_frame.append({
-                    'timestamp': calc_timestamps[-1],
-                    'landmarks': landmarks,
-                })
+                    pose_at_frame.append({
+                        'timestamp': calc_timestamps[-1],
+                        'landmarks': landmarks,
+                    })
 
-                # render detections
-                mp_drawing.draw_landmarks(
-                    frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
-                    mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2),
-                    mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2),
-                )
+                    # render detections
+                    mp_drawing.draw_landmarks(
+                        frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
+                        mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2),
+                        mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2),
+                    )
 
                 # show the detected poses
                 cv2.imshow("Mediapipe feed", frame)

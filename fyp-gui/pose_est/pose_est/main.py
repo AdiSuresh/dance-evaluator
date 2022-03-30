@@ -1,4 +1,4 @@
-from pose_est.capture_pose import *
+from capture_pose import *
 
 video_path = r'./videos/young-man-walking-listening-to-music-from-his-headphones.mp4'
 
