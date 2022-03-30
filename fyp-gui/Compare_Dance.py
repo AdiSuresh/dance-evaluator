@@ -10,7 +10,7 @@ class App(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.title = 'PyQt5 file dialogs - pythonspot.com'
+        self.title = 'Comparing Dance Moves'
         self.left = 10
         self.top = 10
         self.width = 640
@@ -21,31 +21,31 @@ class App(QWidget):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
         
-        self.openFileNameDialog()
-        # self.openFileNamesDialog()
+        # self.openFileNameDialog()
+        self.openFileNamesDialog()
         # self.saveFileDialog()
         
         self.show()
     
-    def openFileNameDialog(self):
-        options = QFileDialog.Options()
-        # options |= QFileDialog.DontUseNativeDialog
-        fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;MP4 (.mp4);; MOV (.mov);; WMV (.wmv);; FLV (.flv);; AVI (.avi)", options=options)
+    # def openFileNameDialog(self):
+    #     options = QFileDialog.Options()
+    #     # options |= QFileDialog.DontUseNativeDialog
+    #     fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;MP4 (.mp4);; MOV (.mov);; WMV (.wmv);; FLV (.flv);; AVI (.avi)", options=options)
         
-        # Need to include authentication to verify file format
-        if fileName:
-            original = fileName
-            shutil.copy(original, self.target)
-            print(fileName)
-            sys.exit()
+    #     # Need to include authentication to verify file format
+    #     if fileName:
+    #         original = fileName
+    #         shutil.copy(original, self.target)
+    #         print(fileName)
+    #         sys.exit()
             
     
-    # def openFileNamesDialog(self):
-    #     options = QFileDialog.Options()
-    #     options |= QFileDialog.DontUseNativeDialog
-    #     files, _ = QFileDialog.getOpenFileNames(self,"QFileDialog.getOpenFileNames()", "","All Files (*);;Python Files (*.py);;CSV Files (*.csv)", options=options)
-    #     if files:
-    #         print(files)
+    def openFileNamesDialog(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        files, _ = QFileDialog.getOpenFileNames(self,"QFileDialog.getOpenFileNames()", "","All Files (*);;CSV Files (*.csv)", options=options)
+        if files:
+            print(files)
     
     # def saveFileDialog(self):
     #     options = QFileDialog.Options()
