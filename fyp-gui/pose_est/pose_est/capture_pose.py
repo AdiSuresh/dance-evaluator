@@ -68,8 +68,11 @@ def start_capture(path=0, save_output=False):
                         mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2),
                     )
 
+                # To flip the camera
+                flipped = cv2.flip(frame, flipCode = 1)
+
                 # show the detected poses
-                cv2.imshow("Mediapipe feed", frame)
+                cv2.imshow("Mediapipe feed", flipped)
             else:
                 break
 
