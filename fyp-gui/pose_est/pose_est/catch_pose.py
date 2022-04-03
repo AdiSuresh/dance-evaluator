@@ -47,7 +47,7 @@ def catch_pose():
                 # show the detected poses
                 cv2.imshow('Feed', frame)
             else:
-                break
+                pass
 
             if cv2.waitKey(10) & 0xFF == ord('q'):
                 break

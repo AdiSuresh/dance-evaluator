@@ -74,7 +74,7 @@ def start_capture(path=0, save_output=False):
                 # show the detected poses
                 cv2.imshow("Mediapipe feed", flipped)
             else:
-                break
+                pass
 
             if cv2.waitKey(100) & 0xFF == ord('q'):
                 break
