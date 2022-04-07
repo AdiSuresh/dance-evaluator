@@ -19,6 +19,10 @@ Furthermore, we teach the 3D AI character to learn from a set of (shuffle) dance
 8. [Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems](https://arxiv.org/abs/2005.01643)
 9. [An Introduction to Deep Reinforcement Learning](https://arxiv.org/abs/1811.12560)
 
+10. [Embed An OpenCV Video Feed in A PyQt Window Using QThread](https://youtu.be/dTDgbx-XelY)
+
+11. [Use PyQt's QThread to Prevent Freezing GUIs](https://realpython.com/python-pyqt-qthread/)
+
 ### [Project Proposal](https://docs.google.com/document/d/1-v-93cy46GzwbvaLij_CYWq-NrMJBckHg6QT_YzfXdk/edit?usp=sharing)
 
 ### [Literary Review Presentation](https://drive.google.com/file/d/16oYKdOZkSUxncbJ7LVt1i3tyZh85ge2w/view?usp=sharing)
