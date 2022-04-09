@@ -1,13 +1,7 @@
-# Dancing AI Training App 
-To teach dance moves for anyone interested with the help of an animated 3D character. And to make it more interesting, we intend to include the option to upload a dance video and make the 3D character dance in tandem with the dancer in the video.
+# Dance Evaluator
+An application that can assess the accuracy of a user's dance moves through Human Pose Estimation. The user can upload their favorite dance video which gets stored and converted. After this is done they can record their dance moves, which later gets evaluated and scored based on their accuracy.
 
-## Synopsis
-
-The website allows the user to upload a dance video and converts it into moves that the 3D character performs. The user can control the speed of the movements and can confirm the accuracy of his/her movements by giving access to a camera. We use Computer Vision to compare the user's movement to that of the 3D character. We also give Step-by-Step tutorials to learn Shuffle Dance.
-
-Furthermore, we teach the 3D AI character to learn from a set of (shuffle) dance videos to train itself, and it creates a trained model. When we play a song or a track, the 3D character starts dancing. The dance moves will depend on the song or track pattern. The training involves learning from two simultaneous inputs - video (to track moves of the dancer from a music video) and audio (music from the video).
-
-### References
+## References
 
 1. [Dance and early childhood cognition: The Isadora Effect](https://www.tandfonline.com/doi/abs/10.1080/10632913.2016.1245166)
 2. [Health benefits of dancing activity among Korean middle-aged women](https://www.tandfonline.com/doi/full/10.3402/qhw.v11.31215)
@@ -22,9 +16,4 @@ Furthermore, we teach the 3D AI character to learn from a set of (shuffle) dance
 10. [Embed An OpenCV Video Feed in A PyQt Window Using QThread](https://youtu.be/dTDgbx-XelY)
 
 11. [Use PyQt's QThread to Prevent Freezing GUIs](https://realpython.com/python-pyqt-qthread/)
-
-### [Project Proposal](https://docs.google.com/document/d/1-v-93cy46GzwbvaLij_CYWq-NrMJBckHg6QT_YzfXdk/edit?usp=sharing)
-
-### [Literary Review Presentation](https://drive.google.com/file/d/16oYKdOZkSUxncbJ7LVt1i3tyZh85ge2w/view?usp=sharing)
-
-### [Project skill Requirement and Resources Analysis](https://docs.google.com/document/d/1y-CbWjInqIwnV86UDdnJe3On8sBU8KnTlA1FcBL0v2c/edit?usp=sharing)
+12. [Deploying PyQt applications](https://wiki.python.org/moin/PyQt/Deploying_PyQt_Applications)
