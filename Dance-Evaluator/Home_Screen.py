@@ -13,7 +13,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import os
 import Copy_File
 import Compare_Dance
-import pose_est.pose_est.capture_pose as cp
+import capture_pose
+import catch_pose
 # import runpy
 
 
@@ -28,13 +29,18 @@ class Ui_Home_Screen(object):
 
     
     def record_dance(self):
-        # os.system('python pose_est\pose_est\main.py')
+        # Call capture_pose
+		
+
+        # os.system('python pose_est\pose_est\capture_pose.py')
         # runpy.run_path(path_name='pose_est\pose_est\main.py')
-        pass
+
+        capture_pose.App()
+		
 
     def compare_dance(self):
-        # os.system('python Compare_Dance.py')
         Compare_Dance.App()
+        # os.system('python Compare_Dance.py')
 
     def setupUi(self, Home_Screen):
         Home_Screen.setObjectName("Home_Screen")
