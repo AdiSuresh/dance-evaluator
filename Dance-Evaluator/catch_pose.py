@@ -17,7 +17,7 @@ def catch_pose():
     # mp_drawing = mp.solutions.drawing_utils
     mp_pose = mp.solutions.pose
 
-    with mp_pose.Pose(min_detection_confidence=0.7, min_tracking_confidence=0.7) as pose:
+    with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
         frame_number = 0
         pose_at_frame = []
         while cap.isOpened():
