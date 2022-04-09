@@ -1,21 +1,24 @@
-import os
-import sys
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
-import cv2
+from PyQt5 import QtGui
+from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QVBoxLayout
+from PyQt5.QtGui import QPixmap
 import mediapipe as mp
+import sys
+import cv2
+from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread
+import numpy as np
 import pandas as pd
+import os
 
 
-class App(QWidget):
+class VideoThread(QThread):
+    change_pixmap_signal = pyqtSignal(np.ndarray)
 
     def __init__(self):
         super().__init__()
+        self._run_flag = True
 
-        self.start_capture()
-
-    def start_capture(self):
+    def run(self):
+        
         # Capture Pose captures the pose of the user records it and stores it in the output/Your_Dance folder
 
         path=0 
@@ -26,7 +29,9 @@ class App(QWidget):
         mp_drawing = mp.solutions.drawing_utils
         mp_pose = mp.solutions.pose
 
-        cap = cv2.VideoCapture(path, cv2.CAP_DSHOW)
+
+        # capture from web cam
+        cap = cv2.VideoCapture(0)
 
         pose_at_frame = []
         calc_timestamps = []
@@ -49,17 +54,16 @@ class App(QWidget):
             32: 'FootR_end'
         }
         with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
-            while cap.isOpened():
-                flag, frame = cap.read()
-
-                if flag:
+            while self._run_flag:
+                ret, cv_img = cap.read()
+                if ret:
                     if len(calc_timestamps) == 0:
                         offset = cap.get(cv2.CAP_PROP_POS_MSEC)
                         calc_timestamps.append(0.0)
                     else:
                         calc_timestamps.append(calc_timestamps[-1] + cap.get(cv2.CAP_PROP_POS_MSEC) - offset)
 
-                    results = pose.process(frame)
+                    results = pose.process(cv_img)
 
                     landmarks = dict()
                     keys = landmark_dict.keys()
@@ -74,36 +78,84 @@ class App(QWidget):
                             'timestamp': calc_timestamps[-1],
                             'landmarks': landmarks,
                         })
-
-                        # render detections
-                        mp_drawing.draw_landmarks(
-                            frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
-                            mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2),
-                            mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2),
-                        )
-
-                    # To flip the camera
-                    flipped = cv2.flip(frame, flipCode = 1)
-
-                    # show the detected poses
-                    cv2.imshow("Mediapipe feed", flipped)
-                else:
-                    pass
-
-                if cv2.waitKey(100) & 0xFF == ord('q'):
-                    break
-
-        if save_output:
-            df = pd.DataFrame(pose_at_frame)
-            path = os.path.join(op_path, 'output.csv')
-            df.to_csv(path)
-
-        cap.release()
-        cv2.destroyAllWindows()
+                    
+                    # render detections
+                    mp_drawing.draw_landmarks(
+                        cv_img, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
+                        mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2),
+                        mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2),
+                    )
+                    
+                    # to flip the camera
+                    cv_img = cv2.flip(cv_img, flipCode = 1)
 
 
-if __name__ == '__main__':
+                    self.change_pixmap_signal.emit(cv_img)
+            
+            if save_output:
+                df = pd.DataFrame(pose_at_frame)
+                path = os.path.join(op_path, 'output.csv')
+                df.to_csv(path)
+
+
+            # shut down capture system
+            cap.release()
+
+    def stop(self):
+        """Sets run flag to False and waits for thread to finish"""
+        self._run_flag = False
+        self.wait()
+
+
+class App(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Qt live label demo")
+        self.disply_width = 640
+        self.display_height = 480
+        # create the label that holds the image
+        self.image_label = QLabel(self)
+        self.image_label.resize(self.disply_width, self.display_height)
+        # create a text label
+        self.textLabel = QLabel('Webcam')
+
+        # create a vertical box layout and add the two labels
+        vbox = QVBoxLayout()
+        vbox.addWidget(self.image_label)
+        vbox.addWidget(self.textLabel)
+        # set the vbox layout as the widgets layout
+        self.setLayout(vbox)
+
+        # create the video capture thread
+        self.thread = VideoThread()
+        # connect its signal to the update_image slot
+        self.thread.change_pixmap_signal.connect(self.update_image)
+        # start the thread
+        self.thread.start()
+
+    def closeEvent(self, event):
+        self.thread.stop()
+        event.accept()
+
+
+
+    @pyqtSlot(np.ndarray)
+    def update_image(self, cv_img):
+        """Updates the image_label with a new opencv image"""
+        qt_img = self.convert_cv_qt(cv_img)
+        self.image_label.setPixmap(qt_img)
+    
+    def convert_cv_qt(self, cv_img):
+        """Convert from an opencv image to QPixmap"""
+        rgb_image = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
+        h, w, ch = rgb_image.shape
+        bytes_per_line = ch * w
+        convert_to_Qt_format = QtGui.QImage(rgb_image.data, w, h, bytes_per_line, QtGui.QImage.Format_RGB888)
+        p = convert_to_Qt_format.scaled(self.disply_width, self.display_height, Qt.KeepAspectRatio)
+        return QPixmap.fromImage(p)
+    
+if __name__=="__main__":
     app = QApplication(sys.argv)
-    ex = App()
-    ex.show()
+    a = App()
+    a.show()
     sys.exit(app.exec_())
