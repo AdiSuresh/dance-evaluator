@@ -24,14 +24,15 @@ class Home_Screen(QWidget):
         # runpy.run_path(path_name='Copy_File.py')
 
         # let's just run the function instead
-        Copy_File.App()
+        # Copy_File.App()
+        os.system('python Catch_Pose.py')
 
     
     def record_dance(self):
         # Call capture_pose
 		
         # Capture_Pose.App()
-        os.system('python capture_pose.py')
+        os.system('python Capture_Pose.py')
 
         # os.system('python pose_est\pose_est\capture_pose.py')
         # runpy.run_path(path_name='pose_est\pose_est\main.py')

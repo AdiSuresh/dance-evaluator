@@ -1,6 +1,7 @@
+import shutil
 from PyQt5 import QtGui
-from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QVBoxLayout
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
 import mediapipe as mp
 import sys
 import cv2
@@ -10,6 +11,7 @@ import pandas as pd
 import os
 
 class VideoThread(QThread):
+    video_path = ''
     change_pixmap_signal = pyqtSignal(np.ndarray)
 
     def __init__(self):
@@ -20,7 +22,7 @@ class VideoThread(QThread):
         
         # Capture Pose captures the pose of the user records it and stores it in the output/Your_Dance folder
 
-        path = 0
+        path = self.video_path
         save_output=True
         
         op_path = './output/Upload'
@@ -107,16 +109,28 @@ class VideoThread(QThread):
 
 
 class App(QWidget):
+    target = r'D:/All Projects/Dance Evaluator/Dance-Evaluator/videos/Uploaded'
+
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Record your Dance Moves")
+        self.setWindowTitle("Uploading and Converting Video File")
         self.disply_width = 640
         self.display_height = 480
+
+        # To set up the logo
+        logo = QIcon()
+        logo.addPixmap(QPixmap('assets/logo.png'), QIcon.Selected, QIcon.On)
+        self.setWindowIcon(logo)
+        
+        # Get the File Location of the Video
+        self.video_path = self.openFileNameDialog()
+
+
         # create the label that holds the image
         self.image_label = QLabel(self)
         self.image_label.resize(self.disply_width, self.display_height)
         # create a text label
-        self.textLabel = QLabel('Get Ready to Dance')
+        self.textLabel = QLabel('Converting your Video file')
 
         # create a vertical box layout and add the two labels
         vbox = QVBoxLayout()
@@ -125,10 +139,15 @@ class App(QWidget):
         # set the vbox layout as the widgets layout
         self.setLayout(vbox)
 
+        # To fix the width and height
+        self.setMaximumSize(self.width(), self.height())
+
         # create the video capture thread
         self.thread = VideoThread()
         # connect its signal to the update_image slot
         self.thread.change_pixmap_signal.connect(self.update_image)
+        # Update Video Path
+        self.thread.video_path = self.video_path
         # start the thread
         self.thread.start()
 
@@ -136,6 +155,17 @@ class App(QWidget):
         self.thread.stop()
         event.accept()
 
+    def openFileNameDialog(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        fileName, _ = QFileDialog.getOpenFileName(self,"Select Video File to Upload", "","All Files (*);;MP4 (.mp4);; MOV (.mov);; WMV (.wmv);; FLV (.flv);; AVI (.avi)", options=options)
+        
+        # Need to include authentication to verify file format
+        if fileName:
+            original = fileName
+            shutil.copy(original, self.target)
+            # print(fileName)
+            return fileName
 
 
     @pyqtSlot(np.ndarray)
