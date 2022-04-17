@@ -9,7 +9,6 @@ import numpy as np
 import pandas as pd
 import os
 
-
 class VideoThread(QThread):
     change_pixmap_signal = pyqtSignal(np.ndarray)
 
@@ -21,7 +20,7 @@ class VideoThread(QThread):
         
         # Capture Pose captures the pose of the user records it and stores it in the output/Your_Dance folder
 
-        path=0 
+        path = 0
         save_output=True
         
         op_path = './output/Upload'
@@ -31,7 +30,7 @@ class VideoThread(QThread):
 
 
         # capture from web cam
-        cap = cv2.VideoCapture(0)
+        cap = cv2.VideoCapture(path)
 
         pose_at_frame = []
         calc_timestamps = []
