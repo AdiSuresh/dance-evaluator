@@ -80,7 +80,7 @@ class VideoThread(QThread):
                                                                 landmark.z]
 
                         pose_at_frame.append({
-                            'timestamp': calc_timestamps[-1],
+                            # 'timestamp': calc_timestamps[-1],
                             'landmarks': landmarks,
                         })
                     
