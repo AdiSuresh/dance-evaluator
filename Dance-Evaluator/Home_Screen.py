@@ -32,6 +32,7 @@ class Home_Screen(QWidget):
 		
         # Capture_Pose.App()
         os.system('python capture_pose.py')
+
         # os.system('python pose_est\pose_est\capture_pose.py')
         # runpy.run_path(path_name='pose_est\pose_est\main.py')
 
@@ -47,25 +48,37 @@ class Home_Screen(QWidget):
 
         self.setWindowTitle('Dance Evaluator')
 
-        windowLayout = QHBoxLayout()
-        
+        # To set up the logo
+        logo = QIcon()
+        logo.addPixmap(QPixmap('assets/logo.png'), QIcon.Selected, QIcon.On)
+        self.setWindowIcon(logo)
+
+        layout = QGridLayout()
+
+        Image_Label = QLabel()
+        pixmap = QPixmap('assets/Dance.jpg')
+        Image_Label.setPixmap(pixmap)
+        Image_Label.resize(pixmap.width(), pixmap.height())
+
+        layout.addWidget(Image_Label, 0, 0, 1, 3)
+
         Upload_video = QPushButton('Upload Video File to Estimate')
         # Upload Video File to Estimate
         Upload_video.clicked.connect(self.upload_video)
-        windowLayout.addWidget(Upload_video)
+        layout.addWidget(Upload_video, 1, 0)
         
         Record_Dance = QPushButton('Record your Dance Moves to Score')
         # Record your Dance Moves to Score
         Record_Dance.clicked.connect(self.record_dance)
-        windowLayout.addWidget(Record_Dance)
+        layout.addWidget(Record_Dance, 1, 1)
         
 
         Compare_Dance = QPushButton('Comparing Dance Moves')
         # Comparing Dance Moves
         Compare_Dance.clicked.connect(self.compare_dance)
-        windowLayout.addWidget(Compare_Dance)
+        layout.addWidget(Compare_Dance, 1 , 2)
 
-        self.setLayout(windowLayout)
+        self.setLayout(layout)
 
         self.show()
 

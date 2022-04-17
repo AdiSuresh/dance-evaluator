@@ -17,5 +17,6 @@ An application that can assess the accuracy of a user's dance moves through Huma
 
 11. [Use PyQt's QThread to Prevent Freezing GUIs](https://realpython.com/python-pyqt-qthread/)
 12. [Deploying PyQt applications](https://wiki.python.org/moin/PyQt/Deploying_PyQt_Applications)
+13. [PyQt Layouts: Create Professional-Looking GUI Applications](https://realpython.com/python-pyqt-layout/)
 
 **Prototype** : *[Designed with Figma](https://www.figma.com/proto/HegXr33zJvBt2zqdJmXvZD/Final-Year-Project?node-id=1%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A3)*

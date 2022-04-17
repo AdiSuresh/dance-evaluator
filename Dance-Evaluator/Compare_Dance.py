@@ -2,7 +2,6 @@ import sys
 import shutil
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
-import Scoring
 import os
 
 
@@ -24,6 +23,10 @@ class App(QWidget):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
 
+        # To set up the logo
+        logo = QIcon()
+        logo.addPixmap(QPixmap('assets/logo.png'), QIcon.Selected, QIcon.On)
+        self.setWindowIcon(logo)
 
         uploaded = self.openUpload()
         print(uploaded)
@@ -52,7 +55,7 @@ class App(QWidget):
         # Uploaded Video file selection
 
         options = QFileDialog.Options()
-        # options |= QFileDialog.DontUseNativeDialog
+        options |= QFileDialog.DontUseNativeDialog
         uploaded, _ = QFileDialog.getOpenFileName(self,"Uploaded Video Files", "./pose_est/output/Upload","All Files (*);; CSV (.csv)", options=options)
         
         # Need to include authentication to verify file format
@@ -66,7 +69,7 @@ class App(QWidget):
         # Recorded Video file selection
         
         options = QFileDialog.Options()
-        # options |= QFileDialog.DontUseNativeDialog
+        options |= QFileDialog.DontUseNativeDialog
         recorded, _ = QFileDialog.getOpenFileName(self,"Recorded Video Files", "./pose_est/output/Your_Dance","All Files (*);; CSV (.csv)", options=options)
         
         # Need to include authentication to verify file format

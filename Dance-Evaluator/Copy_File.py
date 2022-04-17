@@ -21,6 +21,11 @@ class App(QWidget):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
         
+        # To set up the logo
+        logo = QIcon()
+        logo.addPixmap(QPixmap('assets/logo.png'), QIcon.Selected, QIcon.On)
+        self.setWindowIcon(logo)
+
         self.openFileNameDialog()
         # self.openFileNamesDialog()
         # self.saveFileDialog()
@@ -29,7 +34,7 @@ class App(QWidget):
     
     def openFileNameDialog(self):
         options = QFileDialog.Options()
-        # options |= QFileDialog.DontUseNativeDialog
+        options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getOpenFileName(self,"Select Video File to Upload", "","All Files (*);;MP4 (.mp4);; MOV (.mov);; WMV (.wmv);; FLV (.flv);; AVI (.avi)", options=options)
         
         # Need to include authentication to verify file format

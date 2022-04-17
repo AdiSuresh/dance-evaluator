@@ -1,6 +1,6 @@
 from PyQt5 import QtGui
 from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QVBoxLayout
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QIcon
 import mediapipe as mp
 import sys
 import cv2
@@ -111,6 +111,12 @@ class App(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Record your Dance Moves")
+        
+        # To set up the logo
+        logo = QIcon()
+        logo.addPixmap(QPixmap('assets/logo.png'), QIcon.Selected, QIcon.On)
+        self.setWindowIcon(logo)
+        
         self.disply_width = 640
         self.display_height = 480
         # create the label that holds the image
