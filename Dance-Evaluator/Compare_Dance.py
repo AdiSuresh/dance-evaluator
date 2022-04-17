@@ -46,10 +46,7 @@ class App(QWidget):
     
     # scoring function 
     def score(self):
-        print('Scoring Function')
-        os.system('python Scoring.py')
-        # Scoring.Ui_Scoring()
-
+        pass
     
     def openUpload(self):
         # Uploaded Video file selection
