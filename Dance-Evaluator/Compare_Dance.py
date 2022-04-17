@@ -3,37 +3,59 @@ import shutil
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import os
+import pandas as pd
 
 
 class App(QWidget):
 
     # target = r'D:/All Projects/dancing-ai-robot/fyp-gui/pose_est/videos'
+    rows, diff_lines = None, 0
 
 
     def __init__(self):
         super().__init__()
         self.title = 'Comparing Dance Moves'
-        self.left = 10
-        self.top = 10
-        self.width = 640
-        self.height = 480
         self.initUI()
     
     def initUI(self):
         self.setWindowTitle(self.title)
-        self.setGeometry(self.left, self.top, self.width, self.height)
 
         # To set up the logo
         logo = QIcon()
         logo.addPixmap(QPixmap('assets/logo.png'), QIcon.Selected, QIcon.On)
         self.setWindowIcon(logo)
 
-        uploaded = self.openUpload()
-        print(uploaded)
-        recorded = self.openYourDance()
-        print(recorded)
+        self.uploaded = 'output/Upload/output.csv'
 
-        self.score()
+        self.recorded = 'output/Your_Dance/output.csv'
+
+
+        vbox = QHBoxLayout()
+
+        accuracy = self.score()
+        # print(accuracy)
+
+
+        # Image_Label = QLabel()
+        # pixmap = QPixmap('assets/nice_job.jpg')
+        # Image_Label.setPixmap(pixmap)
+
+        # vbox.addWidget(Image_Label)
+
+
+        l2 = QLabel()
+        l2.setText("<h1>Your accuracy is :</h1>")
+        l1 = QLabel()
+        l1.setText("<h1>"+str(accuracy)+"</h1>")
+
+
+        vbox.addWidget(l2)
+        vbox.addWidget(l1)
+
+         # To fix the width and height
+        self.setMaximumSize(self.width(), self.height())
+
+        self.setLayout(vbox)
 
         # scoring = QPushButton('Score', self)
         # scoring.clicked.connect(self.score)
@@ -49,34 +71,53 @@ class App(QWidget):
     
     # scoring function 
     def score(self):
-        pass
+        with open(self.uploaded, 'r') as csv1, open(self.recorded, 'r') as csv2:
+            import1 = csv1.readlines()
+            import2 = csv2.readlines()
+            self.rows = len(import1)
+            self.diff_lines = self.rows
+            with open('output/data_diff.csv', 'w') as outFile:         
+                for self.row in import2:
+                    # looping through import2 and checking on import1
+                    if self.row not in import1:
+                        self.diff_lines -= 1
+                        outFile.write(self.row)
+ 
+        if self.rows and self.diff_lines:
+            return self.compute()
+        return 0
     
-    def openUpload(self):
-        # Uploaded Video file selection
+    def compute(self):
+        a = self.rows
+        b = self.diff_lines
+        return round(float(100 - 100*(2*(a-b)/(a+b))),3)
+    
+    # def openUpload(self):
+    #     # Uploaded Video file selection
 
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        uploaded, _ = QFileDialog.getOpenFileName(self,"Uploaded Video Files", "./output/Upload","All Files (*);; CSV (.csv)", options=options)
+    #     options = QFileDialog.Options()
+    #     options |= QFileDialog.DontUseNativeDialog
+    #     uploaded, _ = QFileDialog.getOpenFileName(self,"Uploaded Video Files", "./output/Upload","CSV Files (.csv)", options=options)
         
-        # Need to include authentication to verify file format
-        if uploaded:
-            # original = uploaded
-            # shutil.copy(original, self.target)
-            return uploaded
+    #     # Need to include authentication to verify file format
+    #     if uploaded:
+    #         # original = uploaded
+    #         # shutil.copy(original, self.target)
+    #         return uploaded
         
 
-    def openYourDance(self):
-        # Recorded Video file selection
+    # def openYourDance(self):
+    #     # Recorded Video file selection
         
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        recorded, _ = QFileDialog.getOpenFileName(self,"Recorded Video Files", "./output/Your_Dance","All Files (*);; CSV (.csv)", options=options)
+    #     options = QFileDialog.Options()
+    #     options |= QFileDialog.DontUseNativeDialog
+    #     recorded, _ = QFileDialog.getOpenFileName(self,"Recorded Video Files", "./output/Your_Dance","CSV Files(.csv)", options=options)
         
-        # Need to include authentication to verify file format
-        if recorded:
-            # original = recorded
-            # shutil.copy(original, self.target)
-            return recorded
+    #     # Need to include authentication to verify file format
+    #     if recorded:
+    #         # original = recorded
+    #         # shutil.copy(original, self.target)
+    #         return recorded
             
     
     # def openFileNamesDialog(self):

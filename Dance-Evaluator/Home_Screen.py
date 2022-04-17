@@ -14,8 +14,6 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 import sys
 import os
-import Copy_File
-import Compare_Dance
 
 class Home_Screen(QWidget):
     def upload_video(self):
@@ -41,7 +39,9 @@ class Home_Screen(QWidget):
 		
 
     def compare_dance(self):
-        Compare_Dance.App()
+        os.system('python Compare_Dance.py')
+
+        # Compare_Dance.App()
         # os.system('python Compare_Dance.py')
 
     def __init__(self):

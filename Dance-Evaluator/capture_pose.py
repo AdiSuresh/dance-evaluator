@@ -22,7 +22,6 @@ class VideoThread(QThread):
         # Capture Pose captures the pose of the user records it and stores it in the output/Your_Dance folder
 
         path=0 
-        save_output=True
         
         op_path = './output/Your_Dance'
 
@@ -100,10 +99,10 @@ class VideoThread(QThread):
 
                     self.change_pixmap_signal.emit(cv_img)
             
-            if save_output:
-                df = pd.DataFrame(pose_at_frame)
-                path = os.path.join(op_path, 'output.csv')
-                df.to_csv(path)
+            # to save the csv file
+            df = pd.DataFrame(pose_at_frame)
+            path = os.path.join(op_path, 'output.csv')
+            df.to_csv(path)
 
 
             # shut down capture system

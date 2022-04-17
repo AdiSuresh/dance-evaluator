@@ -12,6 +12,11 @@ import os
 
 class VideoThread(QThread):
     video_path = ''
+    op_path = './output/Upload'
+    pose_at_frame = []
+
+    
+
     change_pixmap_signal = pyqtSignal(np.ndarray)
 
     def __init__(self):
@@ -23,9 +28,7 @@ class VideoThread(QThread):
         # Capture Pose captures the pose of the user records it and stores it in the output/Your_Dance folder
 
         path = self.video_path
-        save_output=True
         
-        op_path = './output/Upload'
 
         mp_drawing = mp.solutions.drawing_utils
         mp_pose = mp.solutions.pose
@@ -34,7 +37,6 @@ class VideoThread(QThread):
         # capture from web cam
         cap = cv2.VideoCapture(path)
 
-        pose_at_frame = []
         calc_timestamps = []
         offset = 0.0
         landmark_dict = {
@@ -75,7 +77,7 @@ class VideoThread(QThread):
                                                                 landmark.y,
                                                                 landmark.z]
 
-                        pose_at_frame.append({
+                        self.pose_at_frame.append({
                             'timestamp': calc_timestamps[-1],
                             'landmarks': landmarks,
                         })
@@ -93,20 +95,36 @@ class VideoThread(QThread):
 
                     self.change_pixmap_signal.emit(cv_img)
             
-            if save_output:
-                df = pd.DataFrame(pose_at_frame)
-                path = os.path.join(op_path, 'output.csv')
-                df.to_csv(path)
+            
 
+                # name = QtGui.QFileDialog.getSaveFileName(self, 'Save File')
+                # file = open(name,'w')
+                # text = self.textEdit.toPlainText()
+                # file.write(text)
+                # file.close()
 
+                # options = QFileDialog.Options()
+                # options |= QFileDialog.DontUseNativeDialog
+                # fileName, _ = QFileDialog.getSaveFileName(self,"QFileDialog.getSaveFileName()","","All Files (*);;Text Files (*.txt)", options=options)
+                # if fileName:
+                #     original = fileName
+                #     shutil.copyfile(original, self.target)
+                #     print(fileName)
+
+                    
+            # to save the csv file
+            df = pd.DataFrame(self.pose_at_frame)
+            path = os.path.join(self.op_path, 'output.csv')
+            df.to_csv(path)
+                
             # shut down capture system
             cap.release()
 
     def stop(self):
-        """Sets run flag to False and waits for thread to finish"""
+        """Sets run flag to False and waits for thread to finish"""       
         self._run_flag = False
         self.wait()
-
+    
 
 class App(QWidget):
     target = r'D:/All Projects/Dance Evaluator/Dance-Evaluator/videos/Uploaded'
@@ -151,6 +169,8 @@ class App(QWidget):
         # start the thread
         self.thread.start()
 
+
+
     def closeEvent(self, event):
         self.thread.stop()
         event.accept()
@@ -166,6 +186,15 @@ class App(QWidget):
             shutil.copy(original, self.target)
             # print(fileName)
             return fileName
+
+    def saveFileDialog(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        fileName, _ = QFileDialog.getSaveFileName(self,"QFileDialog.getSaveFileName()","","All Files (*);;Text Files (*.txt)", options=options)
+        if fileName:
+            return fileName
+    
+
 
 
     @pyqtSlot(np.ndarray)

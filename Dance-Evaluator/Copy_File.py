@@ -32,12 +32,12 @@ class App(QWidget):
         logo.addPixmap(QPixmap('assets/logo.png'), QIcon.Selected, QIcon.On)
         self.setWindowIcon(logo)
 
-        self.video_path = self.openFileNameDialog()
+        # self.video_path = self.openFileNameDialog()
         
-        self.catchpose()
+        # self.catchpose()
 
         # self.openFileNamesDialog()
-        # self.saveFileDialog()
+        self.saveFileDialog()
         
         self.show()
     
@@ -90,14 +90,14 @@ class App(QWidget):
     #     if files:
     #         print(files)
     
-    # def saveFileDialog(self):
-    #     options = QFileDialog.Options()
-    #     options |= QFileDialog.DontUseNativeDialog
-    #     fileName, _ = QFileDialog.getSaveFileName(self,"QFileDialog.getSaveFileName()","","All Files (*);;Text Files (*.txt)", options=options)
-    #     if fileName:
-    #         original = fileName
-    #         shutil.copyfile(original, self.target)
-    #         print(fileName)
+    def saveFileDialog(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        fileName, _ = QFileDialog.getSaveFileName(self,"QFileDialog.getSaveFileName()","","All Files (*);;Text Files (*.txt)", options=options)
+        if fileName:
+            original = fileName
+            shutil.copyfile(original, self.target)
+            print(fileName)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
