@@ -6,7 +6,7 @@ from PyQt5.QtGui import *
 
 class App(QWidget):
 
-    target = r'D:/All Projects/dancing-ai-robot/fyp-gui/pose_est/videos'
+    target = r'D:/All Projects/Dance Evaluator/Dance-Evaluator/videos/Uploaded'
 
     def __init__(self):
         super().__init__()

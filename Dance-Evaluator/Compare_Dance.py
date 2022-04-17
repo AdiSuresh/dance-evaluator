@@ -56,7 +56,7 @@ class App(QWidget):
 
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        uploaded, _ = QFileDialog.getOpenFileName(self,"Uploaded Video Files", "./pose_est/output/Upload","All Files (*);; CSV (.csv)", options=options)
+        uploaded, _ = QFileDialog.getOpenFileName(self,"Uploaded Video Files", "./output/Upload","All Files (*);; CSV (.csv)", options=options)
         
         # Need to include authentication to verify file format
         if uploaded:
@@ -70,7 +70,7 @@ class App(QWidget):
         
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        recorded, _ = QFileDialog.getOpenFileName(self,"Recorded Video Files", "./pose_est/output/Your_Dance","All Files (*);; CSV (.csv)", options=options)
+        recorded, _ = QFileDialog.getOpenFileName(self,"Recorded Video Files", "./output/Your_Dance","All Files (*);; CSV (.csv)", options=options)
         
         # Need to include authentication to verify file format
         if recorded:

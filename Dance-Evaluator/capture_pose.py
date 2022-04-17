@@ -132,6 +132,9 @@ class App(QWidget):
         # set the vbox layout as the widgets layout
         self.setLayout(vbox)
 
+        # To fix the width and height
+        self.setMaximumSize(self.width(), self.height())
+
         # create the video capture thread
         self.thread = VideoThread()
         # connect its signal to the update_image slot

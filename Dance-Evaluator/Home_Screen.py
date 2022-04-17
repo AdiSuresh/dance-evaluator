@@ -79,6 +79,9 @@ class Home_Screen(QWidget):
         layout.addWidget(Compare_Dance, 1 , 2)
 
         self.setLayout(layout)
+        
+        # To fix the width and height
+        self.setMaximumSize(self.width(), self.height())
 
         self.show()
 
