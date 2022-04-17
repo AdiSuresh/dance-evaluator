@@ -31,7 +31,13 @@ class VideoThread(QThread):
 
 
         # capture from web cam
-        cap = cv2.VideoCapture(0)
+        cap = cv2.VideoCapture(path)
+
+        # Define the codec and create VideoWriter object
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')
+        out = cv2.VideoWriter('./videos/Recorded/recorded_video.avi', fourcc, 20.0, (640, 480))
+
+
 
         pose_at_frame = []
         calc_timestamps = []
@@ -89,6 +95,8 @@ class VideoThread(QThread):
                     # to flip the camera
                     cv_img = cv2.flip(cv_img, flipCode = 1)
 
+                    # Saving the frame to video
+                    out.write(cv_img)
 
                     self.change_pixmap_signal.emit(cv_img)
             
