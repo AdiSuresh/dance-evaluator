@@ -1,10 +1,8 @@
 import sys
-import shutil
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from fastdtw import fastdtw
 from scipy.spatial.distance import euclidean
-import os
 import pandas as pd
 import numpy as np
 import ast
@@ -55,7 +53,7 @@ class App(QWidget):
         l1 = QLabel()
         l1.setText("<h1>Your accuracy is:</h1>")
         l2 = QLabel()
-        l2.setText("<h1>"+str(accuracy)+"</h1>")
+        l2.setText("<h1>"+str(accuracy)+"%</h1>")
 
 
 
@@ -118,7 +116,7 @@ class App(QWidget):
         distance, path = fastdtw(ydc, uc, dist=euclidean)
 
         accuracy = round((1 - (abs(path[len(path)-1][0] - path[len(path)-1][1]))/path[len(path)-1][1]) * 100, 2)
-        score = int(accuracy * 666)
+        score = int(accuracy * 666 * 0.001)
 
         return accuracy, score
 
