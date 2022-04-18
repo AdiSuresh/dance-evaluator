@@ -20,3 +20,5 @@ An application that can assess the accuracy of a user's dance moves through Huma
 13. [PyQt Layouts: Create Professional-Looking GUI Applications](https://realpython.com/python-pyqt-layout/)
 
 **Prototype** : *[Designed with Figma](https://www.figma.com/proto/HegXr33zJvBt2zqdJmXvZD/Final-Year-Project?node-id=1%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A3)*
+
+**Final Product** : *[Dance Evaluator](https://youtu.be/4R-KjPlZjqs)*

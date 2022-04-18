@@ -2,8 +2,13 @@ import sys
 import shutil
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from fastdtw import fastdtw
+from scipy.spatial.distance import euclidean
 import os
 import pandas as pd
+import numpy as np
+import ast
+
 
 
 class App(QWidget):
@@ -30,9 +35,9 @@ class App(QWidget):
         self.recorded = 'output/Your_Dance/output.csv'
 
 
-        vbox = QHBoxLayout()
+        vbox = QVBoxLayout()
 
-        accuracy = self.score()
+        accuracy, score = self.score()
         # print(accuracy)
 
 
@@ -41,16 +46,29 @@ class App(QWidget):
         # Image_Label.setPixmap(pixmap)
 
         # vbox.addWidget(Image_Label)
+        Image_Label = QLabel()
+        pixmap = QPixmap('assets/celebrate2.jpg')
+        Image_Label.setPixmap(pixmap)
+        Image_Label.resize(640, 466)
 
 
-        l2 = QLabel()
-        l2.setText("<h1>Your accuracy is :</h1>")
         l1 = QLabel()
-        l1.setText("<h1>"+str(accuracy)+"</h1>")
+        l1.setText("<h1>Your accuracy is:</h1>")
+        l2 = QLabel()
+        l2.setText("<h1>"+str(accuracy)+"</h1>")
 
 
-        vbox.addWidget(l2)
+
+        l3 = QLabel()
+        l3.setText("<h1>Your Score is :</h1>")
+        l4 = QLabel()
+        l4.setText("<h1>"+str(score)+"</h1>")
+
+        vbox.addWidget(Image_Label)
         vbox.addWidget(l1)
+        vbox.addWidget(l2)
+        vbox.addWidget(l3)
+        vbox.addWidget(l4)        
 
          # To fix the width and height
         self.setMaximumSize(self.width(), self.height())
@@ -71,26 +89,43 @@ class App(QWidget):
     
     # scoring function 
     def score(self):
-        with open(self.uploaded, 'r') as csv1, open(self.recorded, 'r') as csv2:
-            import1 = csv1.readlines()
-            import2 = csv2.readlines()
-            self.rows = len(import1)
-            self.diff_lines = self.rows
-            with open('output/data_diff.csv', 'w') as outFile:         
-                for self.row in import2:
-                    # looping through import2 and checking on import1
-                    if self.row not in import1:
-                        self.diff_lines -= 1
-                        outFile.write(self.row)
- 
-        if self.rows and self.diff_lines:
-            return self.compute()
-        return 0
+        # reading the generated csv files
+        upload = pd.read_csv('output/Upload/output.csv')
+        your_dance = pd.read_csv('output/Your_Dance/output.csv')
+
+        # Upload file CSV to numpy array
+        upload_complete = []
+        for i in range(0, upload.shape[0]):
+            upload_dict = ast.literal_eval(upload.loc[i, 'landmarks'])
+            upload_data = list(upload_dict.values())
+            upload_complete.append(upload_data)
+        
+        uc_nparray = np.array(upload_complete)
+
+        # Your Dance File CSV to numpy array
+        your_dance_complete = []
+        for i in range(0, your_dance.shape[0]):
+            your_dance_dict = ast.literal_eval(your_dance.loc[i, 'landmarks'])
+            your_dance_data = list(your_dance_dict.values())
+            your_dance_complete.append(your_dance_data)
     
-    def compute(self):
-        a = self.rows
-        b = self.diff_lines
-        return round(float(100 - 100*(2*(a-b)/(a+b))),3)
+        ydc_nparray = np.array(your_dance_complete)
+
+        # Converting 3D Numpy Array to 1D
+        ydc = ydc_nparray.ravel()
+        uc = uc_nparray.ravel()
+
+        distance, path = fastdtw(ydc, uc, dist=euclidean)
+
+        accuracy = round((1 - (abs(path[len(path)-1][0] - path[len(path)-1][1]))/path[len(path)-1][1]) * 100, 2)
+        score = int(accuracy * 666)
+
+        return accuracy, score
+
+
+
+
+        
     
     # def openUpload(self):
     #     # Uploaded Video file selection
