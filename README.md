@@ -21,4 +21,4 @@ An application that can assess the accuracy of a user's dance moves through Huma
 
 **Prototype** : *[Designed with Figma](https://www.figma.com/proto/HegXr33zJvBt2zqdJmXvZD/Final-Year-Project?node-id=1%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A3)*
 
-**Final Product** : *[Dance Evaluator](https://youtu.be/4R-KjPlZjqs)*
+**Final Product Video Demonstration** : *[Dance Evaluator](https://youtu.be/4R-KjPlZjqs)*
