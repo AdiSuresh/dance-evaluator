@@ -1,9 +1,9 @@
 # Dance Evaluator
 An application that can assess the accuracy of a user's dance moves through Human Pose Estimation. The user can upload their favorite dance video which gets stored and converted. After this is done they can record their dance moves, which later gets evaluated and scored based on their accuracy.
 
-**Prototype** : *[Designed with Figma](https://www.figma.com/proto/HegXr33zJvBt2zqdJmXvZD/Final-Year-Project?node-id=1%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A3)*
-
-**Final Product Video Demonstration** : *[Dance Evaluator](https://youtu.be/4R-KjPlZjqs)*
+**Research Paper** : [Dance pose evaluation using monocular input device utilizing Dynamic Time Warping and Mediapipe](https://docs.google.com/document/d/11QUKHrE8lfJrquCRYUuD5z4MYQ7jwniZ/edit?usp=sharing&ouid=109898272318264998018&rtpof=true&sd=true)
+**Final Product Video Demonstration** : [Dance Evaluator YouTube Video Demonstration](https://youtu.be/4R-KjPlZjqs)
+**Prototype** : [Initial Design](https://www.figma.com/proto/HegXr33zJvBt2zqdJmXvZD/Final-Year-Project?node-id=1%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A3)
 
 ## Screenshots
 ![Home Screen](Screenshots/Home_Screen.png)
