@@ -1,8 +1,14 @@
 # Dance Evaluator
 An application that can assess the accuracy of a user's dance moves through Human Pose Estimation. The user can upload their favorite dance video which gets stored and converted. After this is done they can record their dance moves, which later gets evaluated and scored based on their accuracy.
 
-## References
+**Prototype** : *[Designed with Figma](https://www.figma.com/proto/HegXr33zJvBt2zqdJmXvZD/Final-Year-Project?node-id=1%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A3)*
 
+**Final Product Video Demonstration** : *[Dance Evaluator](https://youtu.be/4R-KjPlZjqs)*
+
+## Screenshots
+[Home Screen](Screenshots/Home_Screen.png)
+
+### References
 1. [Dance and early childhood cognition: The Isadora Effect](https://www.tandfonline.com/doi/abs/10.1080/10632913.2016.1245166)
 2. [Health benefits of dancing activity among Korean middle-aged women](https://www.tandfonline.com/doi/full/10.3402/qhw.v11.31215)
 3. [Feasibility of home exercises to enhance the benefits of tango dancing in people with Parkinson’s disease](https://www.sciencedirect.com/science/article/abs/pii/S0965229918302401)
@@ -18,7 +24,3 @@ An application that can assess the accuracy of a user's dance moves through Huma
 11. [Use PyQt's QThread to Prevent Freezing GUIs](https://realpython.com/python-pyqt-qthread/)
 12. [Deploying PyQt applications](https://wiki.python.org/moin/PyQt/Deploying_PyQt_Applications)
 13. [PyQt Layouts: Create Professional-Looking GUI Applications](https://realpython.com/python-pyqt-layout/)
-
-**Prototype** : *[Designed with Figma](https://www.figma.com/proto/HegXr33zJvBt2zqdJmXvZD/Final-Year-Project?node-id=1%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A3)*
-
-**Final Product Video Demonstration** : *[Dance Evaluator](https://youtu.be/4R-KjPlZjqs)*
