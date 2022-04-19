@@ -6,7 +6,7 @@ An application that can assess the accuracy of a user's dance moves through Huma
 **Final Product Video Demonstration** : *[Dance Evaluator](https://youtu.be/4R-KjPlZjqs)*
 
 ## Screenshots
-[Home Screen](Screenshots/Home_Screen.png)
+![Home Screen](Screenshots/Home_Screen.png)
 
 ### References
 1. [Dance and early childhood cognition: The Isadora Effect](https://www.tandfonline.com/doi/abs/10.1080/10632913.2016.1245166)
