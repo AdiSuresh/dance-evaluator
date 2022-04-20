@@ -4,15 +4,6 @@
 
 The health benefits of dancing are tremendous; it boosts immunity and cognitive capabilities in children. It also helps prevent osteoporosis in older women. Unfortunately, one of the most common reasons for people to shy away from dance is the fear of embarrassment that comes with doing it wrong. Our goal with this project is to provide a platform to evaluate dance moves and help overcome this fear. In our application, we record the user's dance moves and calculate accuracy. We utilize Mediapipe BlazePose GHUM and Dynamic Time Warping respectively.
 
-**Research Paper** : [Dance pose evaluation using monocular input device utilizing Dynamic Time Warping and Mediapipe](https://docs.google.com/document/d/11QUKHrE8lfJrquCRYUuD5z4MYQ7jwniZ/edit?usp=sharing&ouid=109898272318264998018&rtpof=true&sd=true)
-
-**Final Product Video Demonstration** : [Dance Evaluator YouTube Video Demonstration](https://youtu.be/4R-KjPlZjqs)
-
-**Prototype** : [Initial Design](https://www.figma.com/proto/HegXr33zJvBt2zqdJmXvZD/Final-Year-Project?node-id=1%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A3) 
-
-## Screenshots
-![Home Screen](Screenshots/Home_Screen.png)
-
 ### References
 1. [Dance and early childhood cognition: The Isadora Effect](https://www.tandfonline.com/doi/abs/10.1080/10632913.2016.1245166)
 2. [Health benefits of dancing activity among Korean middle-aged women](https://www.tandfonline.com/doi/full/10.3402/qhw.v11.31215)
@@ -29,3 +20,12 @@ The health benefits of dancing are tremendous; it boosts immunity and cognitive 
 11. [Use PyQt's QThread to Prevent Freezing GUIs](https://realpython.com/python-pyqt-qthread/)
 12. [Deploying PyQt applications](https://wiki.python.org/moin/PyQt/Deploying_PyQt_Applications)
 13. [PyQt Layouts: Create Professional-Looking GUI Applications](https://realpython.com/python-pyqt-layout/)
+
+**Research Paper** : [Dance pose evaluation using monocular input device utilizing Dynamic Time Warping and Mediapipe](https://docs.google.com/document/d/11QUKHrE8lfJrquCRYUuD5z4MYQ7jwniZ/edit?usp=sharing&ouid=109898272318264998018&rtpof=true&sd=true)
+
+**Final Product Video Demonstration** : [Dance Evaluator YouTube Video Demonstration](https://youtu.be/4R-KjPlZjqs)
+
+**Prototype** : [Initial Design](https://www.figma.com/proto/HegXr33zJvBt2zqdJmXvZD/Final-Year-Project?node-id=1%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A3) 
+
+## Screenshots
+![Home Screen](Screenshots/Home_Screen.png)
