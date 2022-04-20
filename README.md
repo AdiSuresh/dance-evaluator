@@ -1,5 +1,8 @@
 # Dance Evaluator
-An application that can assess the accuracy of a user's dance moves through Human Pose Estimation. The user can upload their favorite dance video which gets stored and converted. After this is done they can record their dance moves, which later gets evaluated and scored based on their accuracy.
+
+# Abstract
+
+The health benefits of dancing are tremendous; it boosts immunity and cognitive capabilities in children. It also helps prevent osteoporosis in older women. Unfortunately, one of the most common reasons for people to shy away from dance is the fear of embarrassment that comes with doing it wrong. Our goal with this project is to provide a platform to evaluate dance moves and help overcome this fear. In our application, we record the user's dance moves and calculate accuracy. We utilize Mediapipe BlazePose GHUM and Dynamic Time Warping respectively.
 
 **Research Paper** : [Dance pose evaluation using monocular input device utilizing Dynamic Time Warping and Mediapipe](https://docs.google.com/document/d/11QUKHrE8lfJrquCRYUuD5z4MYQ7jwniZ/edit?usp=sharing&ouid=109898272318264998018&rtpof=true&sd=true)
 
