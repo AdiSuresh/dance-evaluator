@@ -1,8 +1,8 @@
 # Dance Evaluator
 
-# Abstract
+### Abstract
 
-The health benefits of dancing are tremendous; it boosts immunity and cognitive capabilities in children. It also helps prevent osteoporosis in older women. Unfortunately, one of the most common reasons for people to shy away from dance is the fear of embarrassment that comes with doing it wrong. Our goal with this project is to provide a platform to evaluate dance moves and help overcome this fear. In our application, we record the user's dance moves and calculate accuracy. We utilize Mediapipe BlazePose GHUM and Dynamic Time Warping respectively.
+**The health benefits of dancing are tremendous; it boosts immunity and cognitive capabilities in children. It also helps prevent osteoporosis in older women. Unfortunately, one of the most common reasons for people to shy away from dance is the fear of embarrassment that comes with doing it wrong. Our goal with this project is to provide a platform to evaluate dance moves and help overcome this fear. In our application, we record the user's dance moves and calculate accuracy. We utilize Mediapipe BlazePose GHUM and Dynamic Time Warping respectively.**
 
 ### References
 1. [Dance and early childhood cognition: The Isadora Effect](https://www.tandfonline.com/doi/abs/10.1080/10632913.2016.1245166)
