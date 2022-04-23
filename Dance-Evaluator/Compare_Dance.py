@@ -6,6 +6,7 @@ from scipy.spatial.distance import euclidean
 import pandas as pd
 import numpy as np
 import ast
+import statistics as stat
 
 
 
@@ -115,8 +116,20 @@ class App(QWidget):
 
         distance, path = fastdtw(ydc, uc, dist=euclidean)
 
-        accuracy = round((1 - (abs(path[len(path)-1][0] - path[len(path)-1][1]))/path[len(path)-1][1]) * 100, 2)
-        score = int(accuracy * 666 * 0.001)
+        # To Calculate the Median of Path one and two
+        path_one = []
+        path_two = []
+        for i in path:
+            path_one.append(i[0])
+            path_two.append(i[1])
+        median_path_one = stat.median(path_one)
+        median_path_two = stat.median(path_two)
+
+        median_total = median_path_one + median_path_two
+
+        # accuracy formula: round((1 - (distance/median_total)) * 100, 2)
+        accuracy = round(((1 - (distance/median_total)) * 100), 2)
+        score = int(accuracy * 6.66)
 
         return accuracy, score
 
