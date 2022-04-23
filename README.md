@@ -27,6 +27,8 @@
 
 **Research Paper** : [Dance pose evaluation using monocular input device utilizing Dynamic Time Warping and Mediapipe](https://docs.google.com/document/d/11QUKHrE8lfJrquCRYUuD5z4MYQ7jwniZ/edit?usp=sharing&ouid=109898272318264998018&rtpof=true&sd=true)
 
+**Final Review Presentation**: [Dance Evaluator Project Phase II - Review 3](https://docs.google.com/presentation/d/16b55TySVrmrNTK0OevahmInwgZcI-1W6hezjWZb6eCo/edit?usp=sharing)
+
 **Final Product Video Demonstration** : [Dance Evaluator YouTube Video Demonstration](https://youtu.be/4R-KjPlZjqs)
 
 **Prototype** : [Initial Design](https://www.figma.com/proto/HegXr33zJvBt2zqdJmXvZD/Final-Year-Project?node-id=1%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A3) 
