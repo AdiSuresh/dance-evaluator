@@ -6,8 +6,7 @@
 
 ### Proposed Method
 **Block Diagram**
-![Home Screen](Screenshots/Block Diagram.png)
-
+![Block Diagram](Screenshots/Block Diagram.png)
 
 ### References
 1. [Dance and early childhood cognition: The Isadora Effect](https://www.tandfonline.com/doi/abs/10.1080/10632913.2016.1245166)
